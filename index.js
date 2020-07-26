@@ -11,7 +11,18 @@ $(function() {
         
         //add the incoming entry as an li to the ul in the HTML form
         $('.shopping-list').append(`<li><span class="shopping-item">${addItem}</span><div class="shopping-item-controls"><button class="shopping-item-toggle"><span class="button-label">check</span></button><button class="shopping-item-delete"><span class="button-label">delete</span></button></div></li>`);
-
+       
+        //code that strikes through the checked of items.
+       $('.shopping-item-toggle').click(function(event) {
+          $(this).closest("li").toggleClass('shopping-item__checked');
+        });
+  
+      //code that deletes an entry
+      $('.shopping-item-delete').click(function(event) {
+        $(this).closest("li").remove();
+      });
+      })
+    });
         //code that strikes through the checked off items.
         $('.shopping-item-toggle').click(function(event) {
           $(this).closest("li").toggleClass('shopping-item__checked');
@@ -21,5 +32,4 @@ $(function() {
       $('.shopping-item-delete').click(function(event) {
         $(this).closest("li").remove();
       });
-      });
-})
+      
